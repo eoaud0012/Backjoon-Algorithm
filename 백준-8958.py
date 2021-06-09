@@ -1,15 +1,36 @@
-problem_count = int(input())
-problem_list = [list(input()) for _ in range(problem_count)]
+testcase_count = int(input())
+testcase_list = [list(input()) for _ in range(testcase_count)]
 
+# 원래 작성했던 함수. 직관적이지 않음.
+# def score_inspector():
+#     i = 0
+#     j = 0
+#     score_sum = 0
+#     common_difference = 0
+#     for i in range(len(problem_list)):
+
+#         for j in range(len(problem_list[i])):
+#             if(problem_list[i][j] == 'O'):
+#                 common_difference += 1
+#                 score_sum += common_difference
+#             else:
+#                 common_difference = 0
+
+#         print(score_sum)
+#         score_sum = 0
+#         common_difference = 0
+#     return
+
+
+# 변경한 후 함수. 좀 더 직관적임.
 def score_inspector():
     i = 0
     j = 0
     score_sum = 0
     common_difference = 0
-    for i in range(len(problem_list)):
-
-        for j in range(len(problem_list[i])):
-            if(problem_list[i][j] == 'O'):
+    for test_case in testcase_list:
+        for answer in test_case:
+            if(answer == 'O'):
                 common_difference += 1
                 score_sum += common_difference
             else:
@@ -19,6 +40,7 @@ def score_inspector():
         score_sum = 0
         common_difference = 0
     return
+
 
 score_inspector()
 
